@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet, Dimensions } from "react-native";
 
 function Item({ item }) {
+  const trimmedTitle = item.original_title.length > 20 ? item.original_title.substring(0, 15) + '...' : item.original_title;
   return (
     <TouchableOpacity onPress={() => alert("hello")}>
       <View style={styles.itemContainer}>
-        <Image style={styles.image} source={{ uri: "https://image.tmdb.org/t/p/original/"+item.poster_path }} />
-        <Text style={styles.title}>{item.original_title}</Text>
+        <Image style={styles.image} source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }} />
+        <Text style={styles.title}>
+          {trimmedTitle}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -46,6 +49,8 @@ export default function Movies() {
           data={data}
           renderItem={({ item }) => <Item item={item} />}
           keyExtractor={(item) => item.id.toString()}
+          numColumns={2}
+          columnWrapperStyle={styles.row}
         />
       )}
     </View>
@@ -64,22 +69,37 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "700",
     color: "#000000",
+    marginTop:20,
+    marginBottom: 10,
   },
   list: {
     width: Dimensions.get('window').width,
   },
+  row: {
+    flex: 1,
+    justifyContent: "space-around",
+  },
   itemContainer: {
-    marginVertical: 10,
+    flex: 1,
+    margin: 10,
     alignItems: "center",
+    backgroundColor: '#e0e0e0',
+    borderRadius: 10,
+    width: (Dimensions.get('window').width / 2) - 10, // Adjust width
   },
   image: {
-    width: 100,
-    height: 150,
+    width: 168,
+    height: 184,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius:10,
+    
   },
   title: {
     fontWeight: "400",
     color: "black",
-    textAlign: "center",
+    textAlign: "left",
     marginTop: 5,
+    marginBottom:5,
+    width: 120, // Fixed width
   },
 });
