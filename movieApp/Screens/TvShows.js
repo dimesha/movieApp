@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState, useEffect } from "react";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 function Item({ item }) {
     return (
@@ -33,8 +33,8 @@ export default function TvShows() {
         alignItems: "center",
       }}
     >
-      <Text style={{ fontSize: 21, textAlign: "center",fontWeight:'700', color:'#000000', fontFamily:'Open Sans' }}>Tv Shows</Text>
-      _{data && (
+      <Text style={{ fontSize: 21, textAlign: "center",fontWeight:'700', color:'#000000' }}>Tv Shows</Text>
+      {data && (
       <FlatList
         style={{ flex: 1 }}
         data={data}

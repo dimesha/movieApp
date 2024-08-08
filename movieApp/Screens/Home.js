@@ -9,8 +9,8 @@ const Tab = createBottomTabNavigator();
 export default function Home() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Movies" component={Movies} />
-      <Tab.Screen name="TvShows" component={TvShows} />
+      <Tab.Screen name="Movies" component={Movies} options={{headerShown: false}}/>
+      <Tab.Screen name="TvShows" component={TvShows} options={{headerShown: false}} />
     </Tab.Navigator>
     
   )
