@@ -74,6 +74,8 @@ const styles = StyleSheet.create({
   },
   list: {
     width: Dimensions.get('window').width,
+    paddingRight:15,
+    paddingLeft:15,
   },
   row: {
     flex: 1,
@@ -85,10 +87,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: '#e0e0e0',
     borderRadius: 10,
-    width: (Dimensions.get('window').width / 2) - 10, // Adjust width
+    width: (Dimensions.get('window').width / 2) - 25, // Adjust width
   },
   image: {
-    width: 168,
+    width: 155,
     height: 184,
     borderTopLeftRadius: 10,
     borderTopRightRadius:10,

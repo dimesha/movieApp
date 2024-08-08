@@ -22,8 +22,8 @@ export default function App() {
           // You can return any component that you like here!
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'tomato',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: 'red',
+        tabBarInactiveTintColor: 'black',
       })}
     >
       <Tab.Screen name="Movies" component={Movies} options={{ headerShown: false }} />
